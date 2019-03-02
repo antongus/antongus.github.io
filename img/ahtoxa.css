@@ -1,0 +1,213 @@
+* {
+	font-family: verdana, sans-serif;
+}
+
+pre {
+	font-family: monospace;
+}
+
+p {
+	text-indent: 2em;
+}
+
+h1, h2, h3 {
+	text-indent: 1em;
+	color: #1f3d99;
+	text-shadow: #777 1px 1px 1px;
+}
+
+table {
+	border: 0px;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 2px;
+	background-color: #DDD;
+	border: 0.5pt solid black;
+}
+
+th {
+	padding: 2px;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color: #CCC;
+	border: 0.5pt solid black;
+}
+
+caption {
+	background-color: #EEE;
+}
+
+.attention {
+	color: red;
+}
+
+ul {
+	list-style-type: square;
+}
+
+ul ul {
+	list-style-type: disc;
+}
+
+.tip,.note,.caution {
+	border: 1px dashed #e0e0e0;
+}
+
+.tip:before {
+	content: url("tip.gif");
+	margin-right: 4px;
+}
+
+.note:before {
+	content: url("note.gif");
+	margin-right: 4px;
+}
+
+.caution:before {
+	content: url("caution.gif");
+	margin-right: 4px;
+}
+
+.image {
+	text-align: center;
+	text-indent: 0;
+}
+
+.treetable
+{	
+	background-color: white;
+	font-size: 10px;
+}
+
+.treetable td {
+	background-color: white;
+	padding: 0px;
+	border: none;
+}
+
+.treelink {	
+	font-size: 10px;
+}
+
+a.treelink:link, a.treelink:visited {
+	padding: 1px;
+	color: #444;
+	text-decoration: none; 
+}
+
+a.treelink:hover {
+	padding: 1px;
+	color: #000;
+	text-decoration: underline; 
+}
+
+.invisible {
+  display: none;
+}
+
+#siteTitle {
+	background-color: #203060;
+	color: white;
+	letter-spacing: 4px;
+	font-weight: bold;
+	font-stretch: expanded;
+	font-variant: small-caps;
+	font-size: smaller;
+	padding: 3px 5px;
+	text-align: left;
+	text-shadow:0 0 3px #444,2px 2px 3px #bbb; 
+}
+
+#siteTitle:first-letter {
+	color: #80A0FF;
+	font-size: 110%;
+}
+
+#siteTitle a {
+	color: white;
+	text-decoration: none; 
+}
+
+#logo {
+	background-color: #203060;
+	float: left;
+	height: 72px;
+	width: 78px;
+}
+
+#logo a {
+	background: transparent url("head5.jpg") no-repeat center center;
+	display: block;
+	margin: 4px 6px;
+	height: 64px;
+	width: 64px;
+	text-decoration: none; 
+}
+
+#wspacer {
+	width: 100%;
+	min-width: 1110px;
+}
+
+#doctree {
+	width: 282px;
+	float: left;
+	margin-top: 64px;
+	left: 10px;
+	position: absolute;
+}
+
+#content {
+	border-right-color: #000000;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin: 5px 5px 45px 300px;
+	border-left: 1px solid;
+	min-height: 600px;
+}
+
+#bottom {
+	background-color: #203060;
+	color: #BBB;
+	overflow:auto;
+	padding-left: 8px;
+}
+
+#bottom a {
+	color: white;
+	text-decoration: none; 
+}
+
+.copyright {
+	margin-left: 180px;
+}
+
+#bleft{
+	width:88px;
+	float:left;
+	position:relative;
+	padding-top: 4px;
+	padding-left: 200px;
+}
+
+#bcenter{
+	width:700px;
+	float:left;
+	position: relative;
+	padding-left: 8px;
+}
+
+@media print {
+	#siteTitle { display:none; }
+	#doctree { display:none; }
+	#bottom { display:none; }
+	#content {
+		border-right-color: #000000;
+		padding-left: 10px;
+		padding-bottom: 10px;
+		margin: 5px 5px 5px 5px;
+		border-left: none;
+	}
+}
