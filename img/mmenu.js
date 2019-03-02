@@ -62,12 +62,12 @@ function ToggleTree()
 
 function SiteHead() {
 
-	document.title='AHTOXA.NET : ' + GetTitlePath();
+	document.title='antongus.github.io : ' + GetTitlePath();
 	document.write('<div id="wspacer">');
 	document.write('<a name="top"></a>');
 	document.write('<div id="document">');
 	document.write('<div id="logo"><a href="'+root+'/">&nbsp;</a></div>');
-	document.write('<div id="siteTitle"><a href="'+root+'/">AHTOXA.NET</a></div>');
+	document.write('<div id="siteTitle"><a href="'+root+'/">antongus.github.io</a></div>');
 	document.write('<div id="doctree">');
 	document.write('<a  class="treelink" href="javascript:void(0);" onClick=ToggleTree() title="Спрятать/показать оглавление">Оглавление</a>');
 	document.write('<div id="nodes">');
@@ -86,7 +86,7 @@ function SiteFoot() {
 	document.write('</div></div>'); //  content, document
 	document.write('<div id="bottom">');
 	document.write('<a href=#top>top</a>');
-	document.write('<span class="copyright">&copy; AHTOXA, 2005-2015.</span><br/><br/>');
+	document.write('<span class="copyright">&copy; Anton Gusev aka AHTOXA, 2005-2019.</span><br/><br/>');
 	document.write('<div id="bleft"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.ru"><img alt="Лицензия Creative Commons" style="border-width:0" src="/img/CC-BY-SA-88x31.png" /></a></div>');
 	document.write('<div id="bcenter">Если не указано иное, содержимое данного сайта доступно на условиях <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.ru">лицензии Creative Commons «Attribution-ShareAlike» 4.0 Всемирная</a><br /><br /></div>');
 	document.write('</div></div>'); // bottom, wspacer
