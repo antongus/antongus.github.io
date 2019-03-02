@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:Проекты на AtMega:Зарядное устройство</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>Зарядное устройство на AtMega</h1>
+<p>Здесь описано универсальное микроконтроллерное зарядное устройство.
+<hr>
+
+<h2>Описание</h2>
+
+<p>Устройство сделано по мотивам <a href="http://www.atmel.com/dyn/resources/prod_documents/doc1659.pdf" target=_blank>аппноты avr450</a> от Atmel.
+<p>Программу я написал свою, железо маленько модернизировал. Устройство ещё не доделано, пока работает в полуручном режиме - некогда.
+
+<h2>Общий вид</h2>
+
+<p>Пока на макетной плате, не знаю, соберусь ли я сделать печатку и корпус...
+
+<p class="image"><a href="charger_big.jpg"><img src="charger.jpg"></a>
+
+<p>В качестве дисплея применён ЖК-индикатор 2x16, в качестве устройства ввода - энкодер с кнопкой.
+
+
+<h2>Схема</h2>
+
+<p>Схема не совсем совпадает с макеткой, на схеме другой источник +5В (на макетке обычный 7805),
+ещё что-то по мелочи.
+
+<p class="image"><a href="charger-sch-big.gif"><img src="charger-sch.gif"></a>
+
+<h2>Описание работы</h2>
+
+<p>На данный момент всё очень незамысловато. Вращая энкодер, устанавливаем порог ограничения зарядного напряжения (отображается в первой строке),
+нажимаем кнопку, устанавливаем порог ограничения зарядного тока (отображается во второй строке).
+
+<p>Реальные (действующие) значения зарядного напряжения и тока отображаются в скобках:
+
+<p class="image"><img src="display.jpg">
+
+<p>Длинным нажатием на кнопку можно приостановить/продолжить процесс заряда.
+
+<h2>Программа</h2>
+
+<p>Программу пока не выкладываю, допишу как следует - выложу:-)
+
+<p>&copy; AHTOXA, 2007.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

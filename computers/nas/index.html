@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про компьютеры:NAS</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<p class="image"><img align="right" src="nas-small.jpg" alt="NAS">
+<h1>Самодельный NAS (Network Attached Storage)</h1>
+<p>Описывается создание NAS на основе материнской платы Mini-ITX.
+<hr>
+
+<h2>Идея</h2>
+<p>С увеличением числа компьютеров в моей домашней сети (два моих компьютера, компьютер сына,
+ноут жены, нетбук, наладонник с WiFi и проч.) мне всё чаще хотелось иметь некое сетевое хранилище, 
+где находились бы все наши общие данные. 
+<p>Требования были такие:
+<ul>
+	<li>Тихий (чтоб не мешал спать);
+	<li>Малогабаритный (чтоб задвинуть в угол и забыть);
+	<li>Экономичный (для круглосуточной работы);
+	<li>Надёжный (в плане сохранности данных, желательно RAID-5 или зеркало);
+</ul>
+
+<h2>Реализация</h2>
+<p>Всё завертелось, когда я наткнулся в компьютерном магазине на Mini-ITX материнскую плату 
+<a href="http://www.intel.com/p/en_US/support/highlights/dsktpboards/d945gclf2">Intel D945GCLF2</a>.
+К материнке прикупил пару терабайтных тихих винтов от WD (это был максимальный на то время объём), 
+пару тихих 12-см вентиляторов и маленький блок питания 
+<a href="http://www.meanwell.com/search/atx-68a/atx-68a-spec.pdf">ATX-68A</a>.
+Удалив шумный вентилятор у материнки и вынув блок питания из корпуса, я прикинул компоновку:
+<p class="image"><img src="nas-stage-1.jpg" alt="Начальные прикидки">
+
+<p>Потом взял крышку от компьютерного корпуса:
+<p class="image"><img src="nas-stage-2.jpg" alt="Примерка корпуса">
+
+<p>Обрезал лишнее, загнул края:
+<p class="image"><img src="nas-stage-3.jpg" alt="Обрезал лишнее">
+
+<p>Приклепал к дну корпуса дно от блока питания, вживил боночки для материнки:
+<p class="image"><img src="nas-stage-4.jpg" alt="Крепёж блока питания и материнки">
+
+<p>Соорудил крепление для жёстких дисков (из железок для крепления гипсокартона):
+<p class="image"><img src="nas-stage-5.jpg" alt="Крепление для дисков">
+
+<p>И прорезал отверстие для материнки:
+<p class="image"><img src="nas-stage-6.jpg" alt="Отверстие для материнки">
+
+<p>Потом соорудил боковинки. Для этого вырезал из остатков корпуса рамочки по размеру,
+и впаял в них изнутри металлическую сетку.
+Сетку нашёл в хозяйственном магазине, это была такая круглая рамка с сеткой, чтоб накрывать сковороду
+при жарке, против брызг. Не знаю, как называется. Получилось симпатично:
+<p class="image"><img src="nas-stage-7.jpg" alt="Сеточка">
+
+<p>После этого установил всю начинку в корпус:
+<p class="image"><img src="nas-stage-8.jpg" alt="Начинка">
+
+<p>Ну и крышка с вентиляторами. Вот такая получилась &laquo;Электроплитка&raquo;:
+<p class="image"><img src="nas-stage-9.jpg" alt="Крышка">
+
+<h2>Софт</h2>
+<p>В очередной раз поковырявшись с линуксом, я в очередной же раз плюнул, и поставил Windows XP. 
+Поставил на флешку, а из двух винчестеров организовал программное зеркало.
+Процедуру установки Windows на флешку брал <a href="http://www.hwp.ru/articles/Domashniy_diskoviy_massiv_RAID5_na_35_Tb_svoimi_rukami/index.php">здесь</a>.
+
+<h2>Заключение</h2>
+
+<p>Конструкция получилась очень удачная. Тихая (уже в полуметре почти ничего не слышно), 
+практически холодная (температура винчестеров 28&deg;C, температура процессора - максимально 46&deg;C).
+Да и эстетически мне она нравилась:)
+<p>К сожалению, 1Tb мне хватило ненадолго, а увеличить объём дискового пространства 
+в рамках данной конструкции мне не удалось. Поэтому пришлось делать NAS-2. Но это уже совсем другая история:)
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href="http://www.intel.com/p/en_US/support/highlights/dsktpboards/d945gclf2">Материнская плата Intel D945GCLF2</a>
+<li><a href="http://www.meanwell.com/search/atx-68a/atx-68a-spec.pdf">Блок питания ATX-68A (pdf)</a>
+<li><a href="http://www.hwp.ru/articles/Domashniy_diskoviy_massiv_RAID5_na_35_Tb_svoimi_rukami/index.php">Домашний дисковый массив RAID5 на 3.5 Тб своими руками</a>
+</ul>
+<p><p>&copy; AHTOXA, 2008-2010.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

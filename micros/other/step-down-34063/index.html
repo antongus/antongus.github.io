@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:Другие проекты:Нечто лучше КРЕНки</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>Нечто лучше &laquo;КРЕНки&raquo;</h1>
+<p>Понижающий импульсный регулятор (STEP-DOWN).
+<hr>
+
+<h2>Введение</h2>
+
+<p>Как получить 5 вольт из более высокого напряжения? Конечно же при помощи &laquo;КРЕНки&raquo;!
+&laquo;КРЕНка&raquo;, КР142ЕН5, или по-буржуйски, <a href=http://www.fairchildsemi.com/ds/LM/LM7805.pdf>(LM)7805</a>.
+
+<p>Одна трёхногая микросхема, пара конденсаторов, и телемаркет &copy; :) Но не всё так шоколадно. 
+Дело в том, что микросхема LM7805 является линейным стабилизатором напряжения. А это значит, что 
+всё лишнее напряжение она высаживает на себе. 
+То есть, при входном напряжении 12 В, она вынуждена обеспечивать на себе падение
+напряжения в 7 вольт. Умножьте это на ток хотя бы в 100 мА, и получите уже 0.7 Вт рассеиваемой мощности. 
+При чуть больших токах или разнице между входным и выходным напряжениями без теплоотвода уже не обойтись.
+
+<p>Для того, чтобы не усугублять глобальное потепление, а также для экономии электроэнергии
+и энергии батарей, придумали импульсный понижающий регулятор (STEP-DOWN) :
+<p class="image"><img src="step-down-34063-03.jpg" alt="Сравнение размеров">
+
+<h2>Описание</h2>
+
+<p>Регулятор собран на широкораспространённой микросхеме <a href=http://www.onsemi.com/pub/Collateral/MC34063A-D.PDF>MC34063</a>.
+Схема практически один-в-один из даташита, убран лишь токоограничительный резистор:
+
+<p class="image"><img src="dc-dc-12-5-mc34063.gif" alt="Схема">
+
+<h2>Заключение</h2>
+
+<p>Вот такая получилась красота:
+<p class="image"><img src="step-down-34063-01.jpg" alt="Фотка готового устройства">
+<p>Я нашлёпал таких с десяток, на 5 и на 3.3 вольта, и теперь везде использую их. На токах до 0.5 A ничего не греется, 
+причём независимо от величины входного напряжения.
+<p class="image"><img src="step-down-34063-02.jpg" alt="Ещё одна фотка">
+
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href=http://www.onsemi.com/PowerSolutions/product.do?id=MC34063A>MC34063A</a>
+<li><a href=http://www.fairchildsemi.com/ds/LM/LM7805.pdf>(LM)7805</a>
+<li><a href=http://www.smps.us/Unitrode2.html>Unitrode Seminar Books 1983-1994</a>
+</ul>
+<p><p>&copy; AHTOXA, 2009.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>
+

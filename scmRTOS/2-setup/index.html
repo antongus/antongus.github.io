@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+	<title>AHTOXA.NET:scmRTOS:Настройка среды</title>
+	<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>scmRTOS. Настройка среды</h1>
+<p>В этой статье описано, как установить компилятор GCC для ARM и среду разработки Eclipse.
+<hr>
+
+<h2>Компилятор</h2>
+
+<p>Я пользуюсь <a href="http://www.codesourcery.com/sgpp/lite/arm/download.html">Sourcery G++ Lite Edition for ARM</a>.
+Идём по ссылке, качаем вариант EABI (это важно, другие варианты не подходят), запускаем инсталлятор, устанавливаем.
+Инсталлятор сам добавляет путь к компилятору и другим нужным программам в системную переменную PATH. 
+<p>Проверяем корректность установки, набрав в командной строке
+<pre class="console">arm-none-eabi-gcc.exe --version</pre>
+В ответ должно получиться что-то вроде
+<pre class="console">arm-none-eabi-gcc.exe (Sourcery G++ Lite 2009q1-161) 4.3.3
+Copyright (C) 2008 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</pre>
+
+<h2>Eclipse</h2>
+
+<p>Идём на <a href="http://www.eclipse.org/downloads/">страницу загрузок Eclipse</a>, 
+качаем <code>Eclipse IDE for C/C++ Developers</code>. На этот раз ничего устанавливать
+не надо, просто распаковываем архив в удобное место. Если у вас не установлена Java, 
+то надо её <a href="http://www.java.com/download/">скачать</a> и установить. 
+
+<p>После этого можно запустить Eclipse. Для этого создайте на рабочем столе (или где вам удобно)
+ярлычок на программу <code>eclipse.exe</code>. И активизируйте его.
+
+<p>Прежде чем пойти дальше, я немного расскажу об идеологии Eclipse. Базовым понятием Eclipse
+является <code>workspace</code> (рабочая область). Я буду называть ей воркспейс, потому что это короче,
+чем рабочая область, и к тому же я просто так привык. Говоря упрощённо, воркспейс - это
+группа проектов, объединённых по какому-либо признаку. Например, &laquo;программы для STM32&raquo;, или
+&laquo;программы для изделия X&raquo;. Ну или в нашем случае - &laquo;тестовые программы scmRTOS&raquo;.
+Почти все глобальные настройки Eclipse - это настройки уровня воркспейса. То есть, создав новый воркспейс, 
+вы теряете все свои настройки из предыдущего воркспейса. К счастью, настройки легко импортировать.
+Настройки воркспейса доступны из меню <code>Window</code> - <code>Preferences</code>.
+<p>Уровнем ниже воркспейса находится проект. Здесь всё ожидаемо - набор файлов, команды, конфигурация. 
+Настройки проекта доступны из меню <code>Project</code> - <code>Properties</code>.
+Изначально, при создании, проект наследует настройки воркспейса. Однако многие из этих настроек
+можно конкретизировать для проекта, а некоторые - даже для отдельного файла. (Например, кодировку.)
+
+<p>При первом запуске Eclipse спросит, где расположить воркспейс. Создайте какую-нибудь папку, например,
+<code>C:\scmRTOS\tests</code>, и укажите её. Поставьте птичку &laquo;Использовать этот воркспейс по умолчанию&raquo; 
+(&laquo;Use this workspace by default&raquo;). Пусть грузится без лишних вопросов. А при необходимости 
+сменить воркспейс, можно легко это сделать из меню Eclipse.
+
+<p class="image"><a href="eclipse-welcome.jpg"><img align="right" src="eclipse-welcome-small.jpg" alt="Тестовая схема"></a>
+<p>Затем открывается так называемый Welcome-экран:
+<p>Там можно посмотреть примеры, пройти тур знакомства
+с Eclipse и ещё что-то ознакомительное. Нас же интересует кнопка &laquo;Workbench&raquo;. (Если вдруг потом возникнет
+нужда вернуться к окну Welcome, это можно сделать из меню <code>Help</code> - <code>Welcome</code>.)
+<p>Итак, мы наконец-то добрались до воркспейса. Пока он пуст.
+<p>Разверните в ранее созданную папку <code>C:\scmRTOS\tests</code> вот эти <a href="scmRTOS-samples-STM32.zip">примеры</a>. 
+Затем выберите меню <code>File</code> - <code>Import</code>, <code>Existing Projects into Workspace</code>, 
+нажмите кнопку <code>Browse</code>, и укажите папку с проектом 1-Hello.
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href="http://www.codesourcery.com/sgpp/lite/arm/download.html">Sourcery G++ Lite Edition for ARM</a>;
+<li><a href="http://www.eclipse.org/downloads/">Eclipse</a>;
+<li><a href="http://www.java.com/download/">Java</a>;
+</ul>
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

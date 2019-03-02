@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:ЖК Дисплеи:Дисплей от Nokia 7110</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>Дисплей от Nokia 7110</h1>
+<p>Подключение дисплея от сотового телефона Nokia 7110 к микроконтроллеру AtMega32.
+<hr>
+
+<h2>Описание</h2>
+
+<p>Дисплей от Nokia 7110 я купил достаточно случайно, прельстили его цена (он вроде бы стоил даже дешевле дисплея от 3310),
+размеры (визуально - раза в полтора больше) и наличие встроенной подсветки. Недавно, копаясь в закромах,
+наткнулся на него, &mdash; и решил-таки с ним разобраться.
+
+<h2>Про дисплей</h2>
+
+<p>Дисплей графический, монохромный, 96x65 точек; интерфейс - последовательный, однонаправленный; контроллер &mdash; sed1565 (<a href=http://serdisplib.sourceforge.net/ser/doc/sed1565.pdf>datasheet</a>).
+<p>На гибкой плате присутствуют 4 зелёных светодиода подсветки, какая-то кнопка и концентрические круги - контакты под динамик:
+<p class="image"><img src="nokia7110-display.jpg" alt="Дисплейчик">
+
+<p>Там был какой-то разъём, я его отпаял и подпаялся проводками:
+
+<p class="image"><img src="wires-01.jpg" alt="Проводки">
+
+
+<h2>Распиновка</h2>
+
+<p>Контактов всего 14, где какой &mdash; понятно из следующего фото:
+
+<p class="image"><img src="wires-02.jpg" alt="Проводки с номерами контактов">
+
+<p>
+<table>
+<tr><th>Нога</th><th>Назначение</th><th>Описание</th></tr>
+<tr><td>1</td><td>&nbsp;</td><td>Выход датчика температуры (не используется)</td></tr>
+<tr><td>2</td><td>CS</td><td>Chip Select</td></tr>
+<tr><td>3</td><td>&nbsp;</td><td>Идёт на контакт под динамик (не используется)</td></tr>
+<tr><td>4</td><td>D/C</td><td>Data/Command</td></tr>
+<tr><td>5</td><td>SCK</td><td>Serial Clock</td></tr>
+<tr><td>6</td><td>&nbsp;</td><td>Идёт на контакт под динамик (не используется)</td></tr>
+<tr><td>7</td><td>&nbsp;</td><td>Идёт на кнопку (не используется)</td></tr>
+<tr><td>8</td><td>LED-</td><td>Минус питания подсветки</td></tr>
+<tr><td>9</td><td>LED+</td><td>Плюс питания подсветки</td></tr>
+<tr><td>10</td><td>GND</td><td>Земля</td></tr>
+<tr><td>11</td><td>GND</td><td>Земля</td></tr>
+<tr><td>12</td><td>VDD</td><td>Питание (3в)</td></tr>
+<tr><td>13</td><td>SDIN</td><td>Serial Data</td></tr>
+<tr><td>14</td><td>RESET</td><td>Сброс</td></tr>
+</table>
+
+
+<p>Дальше пока не дописал:)
+<h2>Схема</h2>
+
+<h2>Программа</h2>
+<h2>Ссылки</h2>
+<ul>
+<li><a href=http://serdisplib.sourceforge.net/ser/sed1565.html>http://serdisplib.sourceforge.net/ser/sed1565.html</a>
+<li><a href=http://sandiding.tripod.com/nokialcd7110.html>http://sandiding.tripod.com/nokialcd7110.html</a>
+</ul>
+<p><p>&copy; AHTOXA, 2009.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

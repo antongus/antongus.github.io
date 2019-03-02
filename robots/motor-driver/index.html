@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+	<title>AHTOXA.NET</title>
+	<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+	<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<p class="image"><img align="right" src="toshiba.jpg" alt="TA7291P">
+
+<h1>Драйвер коллекторного двигателя</h1>
+<hr>
+
+
+<h2>Общие сведения</h2>
+<p>Практически в каждом роботе применяются электродвигатели. 
+Для управления этими двигателями существуют специальные микросхемы &mdash; драйверы. 
+Драйверы берут на себя заботу о полярности и величине напряжения, подаваемого на двигатель,
+ограничивают ток, и прочее и прочее.
+
+<p>Их много разных, но я остановился на хитрой японской микросхеме 
+<a title="Описание микросхемы на сайте производителя" href="http://www.semicon.toshiba.co.jp/openb2b/websearch/productDetails.jsp?partKey=TA7291P">TA7291P</a>.
+В первую очередь потому, что она продавалась у нас в магазине радиодеталей, к тому же она была дешевле и мощнее распространённой L293.
+
+<p>Вот макет:
+<p class="image"><img src="board.jpg" alt="Макет">
+
+<h2>Микросхема TA7291</h2>
+<p>Я закупил два варианта исполнения микросхемы &mdash; TA7291P и TA7291S. Второй имеет меньше ног (9 вместо 10), и не имеет теплоотвода.
+Соответственно, он менее мощный (средний ток 0.4A вместо 1A). Зато дешевле:)
+
+<p><table>
+<tr><th rowspan=2>Название ноги</th><th colspan=2>Номер ноги</th><th rowspan=2>Описание</th></tr>
+<tr><th>TA7291P</th><th>TA7291S</th></tr>
+<tr><th>V<sub>CC</sub></th><td align=center>7</td><td align=center>2</td><td>+ питания (логика, 4.5..20В)</td></tr>
+<tr><th>V<sub>S</th><td align=center>8</td><td align=center>6</td><td>+ питания (мотор, 0..20В)</td></tr>
+<tr><th>V<sub>REF</sub></th><td align=center>4</td><td align=center>8</td><td>Опорное напряжение</td></tr>
+<tr><th>GND</th><td align=center>1</td><td align=center>5</td><td>Земля</td></tr>
+<tr><th>IN1</th><td align=center>5</td><td align=center>9</td><td>Вход 1</td></tr>
+<tr><th>IN2</th><td align=center>6</td><td align=center>1</td><td>Вход 2</td></tr>
+<tr><th>OUT1</th><td align=center>2</td><td align=center>7</td><td>Выход 1</td></tr>
+<tr><th>OUT2</th><td align=center>10</td><td align=center>3</td><td>Выход 2</td></tr>
+<caption>Таблица 1. Распиновка TA7291</caption>
+</table>
+
+<p>Обратите внимание на вывод <b>V<sub>REF</sub></b>. Микросхема следит, чтобы напряжение на двигателе 
+было равно <b>V<sub>REF</sub></b> + 0.7В. Таким образом, меняя напряжение на <b>V<sub>REF</sub></b>, 
+можно управлять скоростью двигателя. Выводы IN1/IN2 в этом случае используются только для смены режима работы.
+
+<p><table>
+<tr><th width=120 colspan=2>Вход</th><th width=120 colspan=2>Выход</th><th rowspan=2>Режим работы</th></tr>
+<tr><th>IN1</th><th>IN2</th><th>OUT1</th><th>OUT2</th></tr>
+<tr><td align=center>0</td><td align=center>0</td><td align=center>Z</td><td align=center>Z</td><td>Стоп</td></tr>
+<tr><td align=center>1</td><td align=center>0</td><td align=center>H</td><td align=center>L</td><td>Вперёд</td></tr>
+<tr><td align=center>0</td><td align=center>1</td><td align=center>L</td><td align=center>H</td><td>Назад</td></tr>
+<tr><td align=center>1</td><td align=center>1</td><td align=center>L</td><td align=center>L</td><td>Тормоз</td></tr>
+<caption>Таблица 2. Режимы работы TA7291</caption>
+</table>
+
+<p>Сначала я попытался менять скорость, подавая ШИМ на ноги IN1/IN2. 
+Почему-то такой вариант не заработал, микросхема, несмотря на изрядный dead-time, грелась, мотор не крутился. 
+В даташите по этому поводу сказано, что менять режим работы надо через режим Стоп.
+По-видимому, транзисторы там совсем медленные, и возникают сквозные токи.
+Я не стал воевать с этим, а просто сгладил ШИМ фильтром низкой частоты
+и подал его на <b>V<sub>REF</sub></b>. Так всё заработало отлично.
+Правда в этом случае максимальное напряжение на моторе будет 5.7В, но для теста этого хватит.
+
+<h2>Тестовая схема</h2>
+
+<p>Часть 1. Собственно драйвер и стабилизатор напряжения 5В:
+<p class="image"><img src="motor-driver-sh-part-1.gif" alt="Схема, часть 1">
+
+<p>Часть 2. Микроконтроллер и разъём для внутрисхемного программирования:
+<p class="image"><img src="motor-driver-sh-part-2.gif" alt="Схема, часть 2">
+
+<h2>Тестовая программа</h2>
+
+<p>Программа написана под <a href="http://winavr.sourceforge.net/">avr-gcc</a>. Алгоритм работы такой: 
+<p>
+<ul>
+  <li>Плавный разгон вперёд;
+  <li>Равномерное движение вперёд; 
+  <li>Плавное замедление;
+  <li>Плавный разгон назад;
+  <li>Равномерное движение назад; 
+  <li>Плавное замедление;
+</ul>
+<p>Скорость разгона и замедления постепенно увеличивается. 
+
+<p><a href="motor-driver-mega8.zip">Исходники</a>.
+
+<p>Посмотреть видео работы тестовой программы можно на страничке <a href="/robots/wheel-base/">Колёсная база</a>.
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href="http://www.semicon.toshiba.co.jp/openb2b/websearch/productDetails.jsp?partKey=TA7291P">Описание микросхемы на сайте производителя</a>;
+<li><a href="http://winavr.sourceforge.net/">Компилятор winavr</a>.
+</ul>
+<p><p>&copy; AHTOXA, Январь 2011.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

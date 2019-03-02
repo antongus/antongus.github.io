@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:ЖК Дисплеи:Дисплей от Nokia 6100</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>Дисплей от Nokia 6100</h1>
+<p>Подключение дисплея от сотового телефона Nokia 6100 к микроконтроллеру AtMega32.
+<hr>
+
+<h2>Введение</h2>
+
+<p>Освоив монохромные дисплеи от <a href=/micros/lcd/nokia3310/>Nokia 3310</a> и
+<a href=/micros/lcd/nokia7110/>Nokia 7710</a>, 
+я решил попробовать цветной дисплейчик. Выбор пал на дисплей от Nokia 6100, как недорогой и 
+достаточно изученный. На мой взгляд, большим преимуществом цветного дисплея (помимо собственно цвета) 
+является наличие встроенной подсветки. С дисплеем от Nokia 3310 я так толком ничего и не 
+придумал. Недостатками же являются необходимость использовать контроллер с б&#x301ольшим 
+количеством памяти (Tiny2313 здесь уже никак не подойдёт), и требование наличия дополнительного
+напряжения для питания подсветки. 
+<p>Но главное преимущество &mdash; здесь есть где развернуться с точки зрения программирования,
+а это самое интересное;-)
+
+<p class="image"><img src="board.jpg" alt="Тестовая схема">
+
+<h2>Варианты</h2>
+<p>Покопав интернет, я усвоил, что эти дисплеи бывают с разными контроллерами &mdash; от Philips и от EPSON.
+Определить тип контроллера по внешнему виду можно вот здесь: <a href=http://www.electricstuff.co.uk/noklcd.html>http://www.electricstuff.co.uk/noklcd.html</a>
+Но общее правило примерно такое - зелёная плата - EPSON.
+Мне достался как раз такой, с контроллером EPSON S1D15G10. Даташит есть по ссылке выше. 
+
+<p>Насколько мне известно, всемирный разум до сих пор не разгадал, как телефоны Nokia определяют тип
+подключенного дисплея:)
+
+
+<h2>Подключение</h2>
+<p>В принципе, на дисплее присутствует разъём. Но ответной части к нему я не нашёл. Да и не искал особо:)
+А просто сдул разъём феном, и подпаял проводочки:
+
+<p class="image"><img src="wiring-1.jpg" alt="Первые пять проводочков">
+<p>Сначала один ряд, а затем и второй:
+<p class="image"><img src="wiring-2.jpg" alt="И ещё три провода">
+<p>Потом залепил всё это скотчем, и стала красота.
+
+<h2>Распиновка</h2>
+<p>Номера ног видны на фото выше. Обратите внимание, что в моём случае напечатанный 
+номер на шлейфе не совпал с общепринятой распиновкой. Хорошо, что я это разглядел.
+
+<p>Распиновка такая:
+
+<p>
+<table>
+<tr><th>Нога</th><th>Назначение</th><th>Описание</th></tr>
+<tr><td>1</td><td>VDD</td><td>3.3в</td></tr>
+<tr><td>2</td><td>RESET</td><td>Сброс, активный ноль</td></tr>
+<tr><td>3</td><td>SDIN</td><td>Serial Data In</td></tr>
+<tr><td>4</td><td>SCK</td><td>Serial Clock</td></tr>
+<tr><td>5</td><td>CS</td><td>Chip Select</td></tr>
+<tr><td>6</td><td>VLCD</td><td>Питание LCD (у моего дисплея соединено с VDD)</td></tr>
+<tr><td>7</td><td>&nbsp;</td><td>Не используется</td></tr>
+<tr><td>8</td><td>GND</td><td>Земля</td></tr>
+<tr><td>9</td><td>LED-</td><td>Минус питания подсветки</td></tr>
+<tr><td>10</td><td>LED+</td><td>Плюс питания подсветки (требуется порядка 6 в)</td></tr>
+</table>
+
+<h2>Схема</h2>
+<p>Схему я как всегда не рисовал. Питание дисплея подключил к 3.3в, питание подсветки - к 6в.
+Остальные 4 ноги - к ногам Mega32. Сначала к произвольным, затем задействовал аппаратный SPI.
+С аппаратным SPI получилось немного быстрее.
+<p>Mega32 питается также от 3.3в.
+
+<h2>Программа</h2>
+<p>Программа написана на Си, использован компилятор <a href="http://winavr.sourceforge.net/">avr-gcc</a>.
+
+<p>Для использования программного SPI надо в файле <code>nokia6100.c</code> раскомментировать строчку
+<pre>#define USE_SOFT_SPI	(1)</pre>
+<p>В этом случае для подключения дисплея можно использовать любые ноги, надо только их прописать в этом файле.
+<p>Вот архив с проектом: <a href="nokia6100-mega32.zip">nokia6100-mega32.zip</a>.
+
+<h2>Как делать шрифты</h2>
+<p>Шрифты я делал замечательной немецкой программой Font.exe. 
+Скачать её можно <a href="http://www.mikrocontroller.net/topic/12218#651743">вот здесь</a> 
+(качать файл <code>FontEditor_BitmapConverter.zip</code>). Я не пользовался упаковкой шрифтов,
+поэтому при изготовлении своего шрифта птичку "compress Font" надо снять.
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href="http://thomaspfeifer.net/nokia_6100_display_en.htm">http://thomaspfeifer.net/nokia_6100_display_en.htm</a>;
+<li><a href="http://www.electricstuff.co.uk/noklcd.html">http://www.electricstuff.co.uk/noklcd.html</a>;
+<li><a href="http://www.mikrocontroller.net/topic/12218#651743">Программа для создания шрифтов</a>;
+<li><a href="http://winavr.sourceforge.net/">Компилятор winavr</a>.
+</ul>
+<p><p align=right>Страница обновлена 30 января 2011г.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

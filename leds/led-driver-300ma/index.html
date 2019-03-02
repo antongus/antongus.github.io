@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Светодиодная лампа на 21Вт</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+<h1>Драйвер для светодиодов на 300 мА</h1>
+<p>Описывается конденсаторный драйвер для светодиодов на ток 300мА.
+<hr>
+
+<h2>Почему конденсаторный?</h2>
+<p>Для моей <a href="/leds/led-lamp-21w/">светодиодной лампы</a> мне нужен был драйвер. Заказанные на ebay драйверы ехали медленно,
+ждать было невтерпёж. С импульсными схемами я на Вы, вот и стал собирать конденсаторный драйвер.
+<h2>Схема</h2>
+<p>Схему взял <a href="http://www.radiokot.ru/forum/viewtopic.php?p=1642775#p1642775">вот отсюда</a>.
+<p>Вот она:
+<p><a href="led-driver-350ma.png"><img src="led-driver-350ma-small.png"></a>
+<p>Схема эта отличается от обычных наличием защиты от обрыва нагрузки. Без такой защиты электролитические конденсаторы 
+могут бабахнуть при обрыве нагрузки.
+<p>
+
+<h2>Перечень элементов</h2>
+<p>Это цены моего местного магазина радиодеталей:
+<table>
+<tr><th>Деталь</th><th>Кол-во</th><th>Сумма</th></tr>
+<tr><td>Конденсатор К73-17 2.2 мкФ/630В</td><td>3</td><td>75</td></tr>
+<tr><td>Диодный мост RS207 2A, 600V</td><td>1</td><td>10</td></tr>
+<tr><td>Резистор 5 Вт 4.7 Ом</td><td>1</td><td>10</td></tr>
+<tr><td>Резистор 2 Вт 1.0 МОм</td><td>1</td><td>6</td></tr>
+<tr><td>Варистор 14N471K (470В)</td><td>1</td><td>12</td></tr>
+<tr><td>Резистор 2 Вт 8.2 Ом</td><td>2</td><td>12</td></tr>
+<tr><td>Конденсатор электролитический 220/100V</td><td>2</td><td>26</td></tr>
+<tr><td>Резистор 5 Вт 8,2 Ом</td><td>1</td><td>10</td></tr>
+<tr><td>Стабилитрон 1.5KE100A</td><td>1</td><td>14</td></tr>
+<tr><td>Тиристор 2P4M</td><td>1</td><td>15</td></tr>
+<tr><td colspan=2>Итого:</td><td>190</td></tr>
+</table>
+<p>Как видите, драйвер получился недешёвый, надеюсь, это компенсируется его надёжностью.
+<h2>Конструкция</h2>
+<p>Драйвер спаян объёмным монтажём:
+<p><img src="led-driver-300ma-01.jpg">
+<p>Вот ещё пара ракурсов:
+<p><img src="led-driver-300ma-02.jpg">
+<p><img src="led-driver-300ma-03.jpg">
+<p>После испытаний покрыт чёрным термоклеем:
+<p><img src="led-driver-300ma-04.jpg">
+<p>Вроде работает:)
+
+<script type="text/javascript" language="JavaScript">
+<!--
+DisplaySubNodes();
+-->
+</script>
+
+
+<p>&copy; AHTOXA, 2013.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

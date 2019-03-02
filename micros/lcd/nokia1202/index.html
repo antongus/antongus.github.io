@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:ЖК Дисплеи:Дисплей от Nokia 1202</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+
+<h1>Дисплей от Nokia 1202</h1>
+<p>Подключение дисплея от сотового телефона Nokia 1202 к микроконтроллеру.
+<hr>
+
+<h2>Введение</h2>
+
+<p>Всем хорош <a href="/micros/lcd/mokia3310/">дисплей от телефона Nokia 3310</a>,
+но всё же он не лишён недостатков. Главный недостаток - отсутствие встроенной подсветки. Кроме того, его не очень удобно паять.
+<p>Поэтому я периодически поглядывал в интернете на предмет замены. И вот недавно натолкнулся на 
+<a href="http://tuxotronic.org/wiki/component/lcd/ste2007" target=_blank>статью</a> о дисплее от Nokia 1202. Дисплей показался мне интересным.
+Во-первых, есть очень симпатичная встроенная подсветка. Во-вторых, вполне паябельный гибкий шлейфик. 
+И в-третьих, продаётся за смешные 35 рублей! Короче, я не устоял:)   
+
+<h2>Про дисплей</h2>
+
+<p>Дисплей графический, монохромный, 96x68 точек; интерфейс &mdash; последовательный, трёхпроводный, девятибитный; контроллер &mdash; STE2007.
+
+<h2>Распиновка</h2>
+
+<p>На шлейфе имеется 12 контактов, но 2 крайних контакта не используются:
+<p class="image"><a href="nokia1201-pinout-small.jpg"><img src="nokia1201-pinout-small.jpg" alt="Распиновка Nokia 1202"></a>
+<p>Таблица распиновки:
+<p>
+<table title="Таблица распиновки">
+<tr><th>Вывод</th><th>Назначение</th><th>Описание</th></tr>
+<tr><td>1</td><td>RESET</td><td>Сброс</td></tr>
+<tr><td>2</td><td>CS</td><td>Chip Select</td></tr>
+<tr><td>3</td><td>GND</td><td>Земля</td></tr>
+<tr><td>4</td><td>SDA</td><td>Serial Data</td></tr>
+<tr><td>5</td><td>SCLK</td><td>Serial Clock</td></tr>
+<tr><td>6</td><td>VDDI</td><td>Логическое питание (3.3В)</td></tr>
+<tr><td>7</td><td>VDD</td><td>Питание ЖКИ (3.3В)</td></tr>
+<tr><td>8</td><td>N/C</td><td>Не подсоединен</td></tr>
+<tr><td>9</td><td>-LED</td><td>Подсветка - минус</td></tr>
+<tr><td>10</td><td>+LED</td><td>Подсветка - плюс</td></tr>
+</table>
+
+
+<h2>Схема</h2>
+
+<p>Схема минимальная, AtTiny2313, дисплей и конденсатор. Питание - 2.7..3.3 вольт. При питании от
+5 вольт придётся делать отдельный стабилизатор на 3.3 вольта для питания дисплея и согласовывать логические уровни.
+Хотя в сети и встречаются упоминания о нормальной работе дисплея от 5 вольт, мне всё же кажется, что
+надо соблюдать рекомендации производителя.
+
+<p class="image"><img src="nokia3310-sch.gif" alt="Схема">
+
+<p>Выбор ножек контроллера произволен, можно использовать другие. В этом случае придётся изменить описание ножек
+в файле <code>nokia3310.c</code>
+
+<h2>Программа</h2>
+
+<p>Программа написана под avr-gcc. Исходники подробно прокомментированы, всё должно быть понятно.
+<p>Конечно, Tiny2313 не самый подходящий контроллер для вывода графики, тестовая программа занимает
+практически весь объём программной памяти. Но, если нет нужды выводить все буквы алфавита, или если не надо
+выводить крупные буквы, то размер программы можно изрядно подсократить, и тогда появится возможность
+добавить функциональности.
+
+<p><a href="nokia3310-tiny2313.rar">Исходники</a> (в кодировке DOS, я так привык:-))
+
+<h2>Ссылки</h2>
+<ul>
+<li><a href=http://serdisplib.sourceforge.net/ser/pcd8544.html>http://serdisplib.sourceforge.net/ser/pcd8544.html</a>
+<li><a href=http://rifer.narod.ru/nokia3210.htm>http://rifer.narod.ru/nokia3210.htm</a>
+</ul>
+<p><p>&copy; AHTOXA, 2008.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

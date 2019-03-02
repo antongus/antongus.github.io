@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:Проекты:Регулятор мощности</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+<h1>Регулятор мощности.</h1>
+<hr>
+
+<h2>Описание</h2>
+
+<p>Регулятор мощности предназначен для регулирования мощности:-).  У меня он используется для
+паяльника. Есть вариант прошивки для лампочки (там другой алгоритм регулирования).
+
+<h2>Общий вид</h2>
+
+<p>Вот как выглядит готовое устройство:
+
+<p class="image"><img src="device.jpg">
+
+<p>В качестве корпуса использована мыльница. Держалка для паяльника сделана из китайской держалки для паяльника.
+
+<h2>Схема</h2>
+
+<p>Схема состоит из трансформаторного источника питания, процессора(AT89C2051 от Атмел), двузначного семисегментного индикатора,
+схемы определения перехода сетевого напряжения через ноль и твердотельного реле.
+Тиристор я взял КУ208, но лучше взять импортный.
+
+<p class="image"><a href="power-reg.gif"><img src="power-reg-small.gif"></a>
+
+<h2>Описание работы</h2>
+
+<p>При включении устанавливается мощность в 70%. Нажатие кнопки &laquo;UP&raquo; увеличивает мощность,
+нажатие кнопки &laquo;DOWN&raquo; - уменьшает. Одновременное нажатие двух кнопок отключает нагрузку. 
+Повторное одновременное нажатие - включает.
+
+<p>Я хотел приделать маленькую EEPROM для запоминания уровня, даже отладил это на макетке, но потом не стал.
+
+<h2>Плата</h2>
+
+<p>Вот печатная плата:
+
+<p class="image"><a href="power-reg-pcb.gif"><img src="power-reg-pcb-small.gif"></a>
+
+<h2>Программа</h2>
+
+<p>Программа на Си, использовался компилятор Keil: 
+<p><a href="power-reg.c">power-reg.c</a>
+<p>Вариант программы для лампы накаливания: 
+<p><a href="power-reg-lamp.c">power-reg-lamp.c</a>
+
+<p>&copy; AHTOXA, 2006.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>

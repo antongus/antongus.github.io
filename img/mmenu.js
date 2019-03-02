@@ -37,17 +37,9 @@ rnode = AddRootNode('Про&nbsp;светодиоды',root+'/leds/');
 rnode = AddRootNode('Про&nbsp;компьютеры',root+'/computers/');
 	node1 = AddNode(rnode, 'Самодельный&nbsp;NAS',root+'/computers/nas/');
 
-rnode = AddRootNode('Про&nbsp;мою&nbsp;машину',root+'/izh/');
-	node1 = AddNode(rnode, 'Доработки',root+'/izh/tech/');
-		AddNode(node1, 'Разгрузка&nbsp;замка&nbsp;зажигания',root+'/izh/tech/rele/');
-		AddNode(node1, 'Терморегулятор-автомат',root+'/izh/tech/hobot/');
-		AddNode(node1, 'Активатор&nbsp;на&nbsp;5&nbsp;дверь',root+'/izh/tech/actuator/');
-		AddNode(node1, 'ГТЦ&nbsp;и&nbsp;ВУТ&nbsp;LUCAS',root+'/izh/tech/lucas/');
-	node1 = AddNode(rnode, 'Фотки',root+'/izh/album/');
-
 //rnode = AddRootNode('Прочее',root+'/other/');
-rnode = AddRootNode('Контакты',root+'/contacts.html');
-rnode = AddRootNode('Карта сайта',root+'/sitemap.html');
+//rnode = AddRootNode('Контакты',root+'/contacts.html');
+//rnode = AddRootNode('Карта сайта',root+'/sitemap.html');
 
 function ToggleTree()
 {

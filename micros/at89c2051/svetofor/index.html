@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AHTOXA.NET:Про электронику:Проекты:Светофор</title>
+<link rel="stylesheet" type="text/css" href="/img/ahtoxa.css">
+<script type="text/javascript" language="JavaScript" src="/img/tree.js"></script>
+<script type="text/javascript" language="JavaScript" src="/img/mmenu.js"></script>
+</head>
+<body>
+<noscript>
+<p class="caution"><span class="attention">Внимание!</span>
+Без жабаскрипта моя удобная и красивая навигация по сайту работать не будет!
+Либо включите javascript, либо пользуйтесь <a href="/sitemap.html">картой сайта.</a>
+</noscript>
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteHead();
+-->
+</script>
+<h1>Светофор. Детская игрушка.</h1>
+<hr>
+
+<h2>Описание</h2>
+
+<p>Я сделал этот светофор для своего сынишки, он сидел рядом и деятельно помогал. Получилось замечательное общение,
+и полезная игрушка. Так сказать, &laquo;конструкция выходного дня&raquo;. 
+
+<h2>Общий вид</h2>
+
+<p>Вот он, светофор:
+
+<p class="image"><img src="svetofor.jpg">
+
+<p>В качестве корпуса использованы 2 кирпичика от детского конструктора, у них как раз 3 цилиндрических
+углубления, идеально подошедших под светодиоды диаметром 10мм.
+
+<p>Ножка сделана из куска металлопластиковой трубы, внутри - 2 аккумулятора ААА.
+
+<p>Основание - не помню из чего.
+
+<h2>Схема</h2>
+
+<p>Схему не рисовал, незачем. Процессор - AT89C2051 от Атмел. Кварц маленький на 4 МГц. 
+На 3х ногах - 3 светодиода через резисторы к плюсу питания. Цепь сброса отсутствует, конденсаторы на кварце - тоже.
+
+<h2>Конструкция</h2>
+
+<p>Плату делать я не стал, припаял всё к кроватке. Вот здесь видны резисторы:
+
+<p class="image"><img src="inside-1.jpg">
+
+<p>Вот здесь виден кварц (под кроваткой):
+
+<p class="image"><img src="inside-2.jpg">
+
+<p>Вот кнопка:
+
+<p class="image"><img src="button.jpg">
+
+<h2>Программа</h2>
+
+<p>Программа на Си, использовался компилятор Keil: 
+<p><a href="svetofor.c">svetofor.c</a>
+
+<p>&copy; AHTOXA, 2006.
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+SiteFoot()
+-->
+</script>
+</body>
+</html>
