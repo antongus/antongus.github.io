@@ -11,7 +11,7 @@ rnode = AddRootNode('Про&nbsp;электронику',root+'/micros/');
 		AddNode(node1, 'Тахометр',root+'/micros/at89c2051/tachometer/');
 		AddNode(node1, 'Регулятор&nbsp;мощности',root+'/micros/at89c2051/power-reg/');
 	node1 = AddNode(rnode, 'Проекты&nbsp;на&nbsp;AtMega',root+'/micros/mega/');
-		AddNode(node1, 'Зарядное&nbsp;устройство',root+'/micros/mega/charger/');
+//		AddNode(node1, 'Зарядное&nbsp;устройство',root+'/micros/mega/charger/');
 		AddNode(node1, 'Дисплей от Nokia&nbsp;6100',root+'/micros/lcd/nokia6100/');
 	node1 = AddNode(rnode, 'Проекты&nbsp;на&nbsp;AtTiny',root+'/micros/tiny/');
 		AddNode(node1, 'Семисегментный&nbsp;индикатор',root+'/micros/tiny/leds/');
